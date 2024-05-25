@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgileMax</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-image">
+        <img src="welle3.svg" alt="Background Image">
+    </div>
+    <div class="header" id="header">
+        <div class="menu">
+            <button class="menu-button" id="menuButton" onclick="toggleMenu()">☰</button>
+            <div class="menu-content" id="menuContent">
+                <a href="startpage.html">Home</a>
+                <a href="Trainings.html">Darf ich deine Internetseite machen?</a>
+                <!-- <a href="Beratung.html">Beratung</a>
+                <a href="Blog.html">Blog</a> -->
+            </div>
+        </div>
+        <span id="headerText">agileMax</span>
+    </div>
+    <div class="content">
+        <h1 id="mainText">agileMax</h1>
+    </div>
+    <div class="spacer"></div>
+    <script>
+        function toggleMenu() {
+            var menuContent = document.getElementById("menuContent");
+            var menuButton = document.getElementById("menuButton");
+            if (menuContent.style.display === "block") {
+                menuContent.style.display = "none";
+            } else {
+                menuContent.style.display = "block";
+            }
+        }
+
+        window.onscroll = function() {
+            var backgroundImage = document.querySelector('.background-image img');
+            var scrollPosition = window.scrollY;
+            var opacity = 0.3 - (scrollPosition / window.innerHeight);
+
+            // Begrenze die Opazität zwischen 0 und 0.3
+            opacity = Math.min(Math.max(opacity, 0), 0.3);
+
+            // Setze die Opazität des Hintergrundbildes
+            backgroundImage.style.opacity = opacity.toString();
+
+            var header = document.getElementById("header");
+            var headerText = document.getElementById("headerText");
+            var mainText = document.getElementById("mainText");
+
+            if (scrollPosition > 50) {
+                header.classList.add("shrink");
+                headerText.style.display = 'inline';
+                mainText.style.visibility = 'hidden';
+            } else {
+                header.classList.remove("shrink");
+                headerText.style.display = 'none';
+                mainText.style.visibility = 'visible';
+            }
+        };
+
+        // Initialer Zustand
+        document.getElementById("headerText").style.display = 'none';
+    </script>
+</body>
+</html>

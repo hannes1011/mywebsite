@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none; /* Damit das Bild das Scrollen nicht beeinträchtigt */
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    transition: opacity 0.3s ease; /* Animation für die Opazität */
+}
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1em 1em;
+    transform: scale(1);
+}
+
+.header.shrink {
+    font-size: 3em;
+    transform: scale(0.75);
+    padding: 0.5em 1em;
+}
+
+.menu {
+    position: absolute;
+    left: 1em;
+}
+
+.menu-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-button.active {
+    transform: rotate(90deg); 
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #f0f0f0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    width: 300px; /* Reduzierte Breite */
+}
+
+.menu-content a {
+    color: #333;
+    padding: 12px 16px;
+    font-size: 1em; /* Korrigierte Syntax */
+    text-decoration: none;
+    display: block;
+}
+
+.menu-content a:hover {
+    background-color: #575757;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.spacer {
+    height: 200vh; 
+}
+
+h1 {
+    font-size: 5em;
+    color: #777777;
+    position: relative;
+    margin: 0;
+    animation: moveUp 2s ease-out forwards;
+}
+
+.animated-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideInImage 2s forwards; /* Beispielanimation für das Bild */
+}
+
+@keyframes moveUp {
+    0% {
+        top: 50%;
+        opacity: 0;
+    }
+    100% {
+        top: 0%;
+        opacity: 1;
+    }
+}
